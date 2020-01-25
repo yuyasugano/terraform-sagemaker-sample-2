@@ -25,14 +25,14 @@ def retrain_the_model():
                                     'DataSource': {
                                         'S3DataSource': {
                                             'S3DataType': 'S3Prefix',
-                                            'S3Uri': 's3://sagemaker-bucket-sample-test/sagemaker/sample/boston_housing.csv',
+                                            'S3Uri': 's3://<your bucket>/sagemaker/sample/boston_housing.csv',
                                             'S3DataDistributionType': 'FullyReplicated',
                                         }
                                     },
                                 },
                             ], 
             OutputDataConfig={
-                                'S3OutputPath': 's3://sagemaker-bucket-sample-test/sagemaker/sample/output'
+                                'S3OutputPath': 's3://<your bucket>/sagemaker/sample/output'
                             },
             ResourceConfig={
                             'InstanceType': 'ml.m4.xlarge',
@@ -58,7 +58,7 @@ def deploy_model(training_job_name):
         PrimaryContainer={
             'ContainerHostname': 'model-Container',
             'Image': '354813040037.dkr.ecr.ap-northeast-1.amazonaws.com/sagemaker-scikit-learn:0.20.0-cpu-py3',
-            'ModelDataUrl': f's3://sagemaker-bucket-sample-test/sagemaker/sample/output/{training_job_name}/output/model.tar.gz',
+            'ModelDataUrl': f's3://<your bucket>/sagemaker/sample/output/{training_job_name}/output/model.tar.gz',
             'Environment': {
                 'SAGEMAKER_PROGRAM': 'scikit_learn_gradient.py',
                 'SAGEMAKER_REGION':'ap-northeast-1',
