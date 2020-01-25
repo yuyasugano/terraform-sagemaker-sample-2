@@ -1,0 +1,11 @@
+variable "aws_region" {}
+variable "aws_profile" {}
+variable "iam_name" {}
+variable "iam_name_lambda" {}
+variable "identifier" {}
+variable "identifier_lambda" {}
+variable "notebook_bucket_name" {}
+variable "sagemaker_bucket_name" {}
+variable "sagemaker_notebook_name" {}
+variable "endpoint_name" {}
+variable "event_name" {}
